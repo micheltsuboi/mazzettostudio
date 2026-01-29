@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern Dark Tech Palette */
+  --background: #020617;
+  /* Deepest Navy/Graphite */
+
+  /* Glassmorphism Bases */
+  --surface: rgba(15, 23, 42, 0.6);
+  /* Translucent Slate 950 */
+  --surface-highlight: rgba(30, 41, 59, 0.4);
+  /* Translucent Slate 800 */
+
+  --foreground: #f8fafc;
+  /* Slate 50 - Bright White Text */
+  --foreground-muted: #94a3b8;
+  /* Slate 400 - Muted Text */
+
+  --primary: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  /* White 8% opacity */
+
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* Neon Accents & Gradients */
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-yellow: #facc15;
+  --accent-orange: #f97316;
+  --accent-purple: #8b5cf6;
+  --accent-red: #ef4444;
+  --accent-pink: #ec4899;
+
+  --gradient-glow: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+
+  --radius-card: 1rem;
+}
+
+.light-theme {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-highlight: #f1f5f9;
+  --foreground: #000000;
+  --foreground-muted: #64748b;
+  --border: #e2e8f0;
+
+  /* Reset Dark Global Styles */
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-highlight: var(--surface-highlight);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --font-sans: var(--font-montserrat);
+
+  --color-accent-green: var(--accent-green);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-red: var(--accent-red);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-pink: var(--accent-pink);
+
+  --radius-2xl: var(--radius-card);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
+  min-height: 100vh;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+/* Form Elements */
+input,
+select,
+textarea {
+  color: var(--foreground);
+  background-color: var(--surface-highlight);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  background-color: rgba(30, 41, 59, 0.8);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 1px var(--accent-blue), 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+input::placeholder {
+  color: var(--foreground-muted);
+  opacity: 0.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Status Badge Glows */
+.badge-glow-green {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.badge-glow-yellow {
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+
+.badge-glow-blue {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
