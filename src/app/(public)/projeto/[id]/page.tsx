@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import ProjectGallery from '@/components/public/ProjectGallery'
 
 // Force dynamic rendering to ensure fresh data
 export const dynamic = 'force-dynamic'
@@ -76,22 +77,7 @@ export default async function ProjectPage({
                 </div>
 
                 {/* Gallery - Vertical Stack for Impact */}
-                <div className="space-y-4 md:space-y-12">
-                    {sortedImages.map((img: any) => (
-                        <div key={img.id} className="relative w-full">
-                            <Image
-                                src={img.url}
-                                alt={img.titulo || project.titulo}
-                                width={1920}
-                                height={1080}
-                                className="w-full h-auto object-contain max-h-[90vh] mx-auto bg-surface-highlight/10"
-                                priority={img.ordem === 0}
-                                quality={90}
-                                sizes="100vw"
-                            />
-                        </div>
-                    ))}
-                </div>
+                <ProjectGallery images={sortedImages} projectTitle={project.titulo} />
             </div>
         </main>
     )
