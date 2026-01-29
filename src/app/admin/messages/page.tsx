@@ -37,9 +37,9 @@ export default function MessagesPage() {
         ))
 
         try {
-            await supabase
-                .from('contacts')
-                .update({ read: !currentStatus } as any)
+            await (supabase
+                .from('contacts') as any)
+                .update({ read: !currentStatus })
                 .eq('id', id)
         } catch (error) {
             console.error('Error updating status:', error)
@@ -53,10 +53,10 @@ export default function MessagesPage() {
         setMessages(messages.filter(msg => msg.id !== id))
 
         try {
-            await supabase
-                .from('contacts')
+            await (supabase
+                .from('contacts') as any)
                 .delete()
-                .eq('id', id) as any
+                .eq('id', id)
         } catch (error) {
             console.error('Error deleting message:', error)
             await fetchMessages()

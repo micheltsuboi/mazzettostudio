@@ -20,13 +20,13 @@ export default function ContatoPage() {
         setLoading(true)
 
         try {
-            const { error } = await supabase
-                .from('contacts')
+            const { error } = await (supabase
+                .from('contacts') as any)
                 .insert({
                     name: formData.name,
                     email: formData.email,
                     message: formData.message
-                } as any)
+                })
 
             if (error) throw error
 
