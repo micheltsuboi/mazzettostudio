@@ -18,10 +18,10 @@ export default function Footer({ variant = 'light' }: FooterProps) {
 
                 {/* Logo Mazzetto + Copyright */}
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                    {/* Logo (Assuming we use the same logo file, possibly filtering it for dark mode if needed) */}
-                    <div className={`relative h-6 w-24 ${!isDark ? 'brightness-100' : 'brightness-0 invert opacity-70'}`}>
+                    {/* Logo (Square Icon) */}
+                    <div className={`relative h-10 w-10 ${!isDark ? 'brightness-100' : 'brightness-0 invert opacity-70'}`}>
                         <Image
-                            src="/logo.png"
+                            src="/brand-icon.png"
                             alt="Mazzetto Studio"
                             fill
                             className="object-contain"
