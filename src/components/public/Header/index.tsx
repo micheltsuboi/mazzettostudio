@@ -35,7 +35,7 @@ export default function Header({ categorias }: HeaderProps) {
                             alt="Mazzetto Studio"
                             width={200}
                             height={50}
-                            className="h-12 w-auto object-contain"
+                            className="h-16 md:h-20 w-auto object-contain"
                             priority
                         />
                     </Link>
