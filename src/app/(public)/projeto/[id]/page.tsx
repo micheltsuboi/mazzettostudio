@@ -24,14 +24,14 @@ export default async function ProjectPage({
         `)
         .eq('id', id)
         .eq('publicado', true)
-        .single()
+        .single() as any
 
     if (!project) {
         notFound()
     }
 
     // Sort images by order
-    const sortedImages = project.imagens?.sort((a, b) => a.ordem - b.ordem) || []
+    const sortedImages = project.imagens?.sort((a: any, b: any) => a.ordem - b.ordem) || []
 
     return (
         <main className="min-h-screen bg-background text-foreground pb-20 pt-24 md:pt-32">
@@ -77,7 +77,7 @@ export default async function ProjectPage({
 
                 {/* Gallery - Vertical Stack for Impact */}
                 <div className="space-y-4 md:space-y-12">
-                    {sortedImages.map((img) => (
+                    {sortedImages.map((img: any) => (
                         <div key={img.id} className="relative w-full">
                             <Image
                                 src={img.url}

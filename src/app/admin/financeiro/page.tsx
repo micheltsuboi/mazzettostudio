@@ -77,8 +77,8 @@ export default function FinanceiroPage() {
             // Optimistic update
             setTransacoes(transacoes.map(t => t.id === id ? { ...t, status: newStatus as any } : t))
 
-            const { error } = await supabase
-                .from('financeiro')
+            const { error } = await (supabase
+                .from('financeiro') as any)
                 .update({ status: newStatus })
                 .eq('id', id)
 

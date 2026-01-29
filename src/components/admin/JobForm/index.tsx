@@ -62,14 +62,14 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
 
             // 1. Salvar ou Atualizar Job
             if (job) {
-                const { error: dbError } = await supabase
-                    .from('jobs')
+                const { error: dbError } = await (supabase
+                    .from('jobs') as any)
                     .update(dataToSave)
                     .eq('id', job.id)
                 if (dbError) throw dbError
             } else {
-                const { data: newJob, error: dbError } = await supabase
-                    .from('jobs')
+                const { data: newJob, error: dbError } = await (supabase
+                    .from('jobs') as any)
                     .insert(dataToSave)
                     .select()
                     .single()
@@ -85,7 +85,7 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
                     .from('financeiro')
                     .select('id')
                     .eq('job_id', jobId)
-                    .single()
+                    .single() as any
 
                 const financeiroStatus = formData.status_pagamento === 'pago' ? 'pago' : 'a_receber'
                 const financeiroData = {
@@ -99,17 +99,17 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
                 }
 
                 if (existingFinanceiro) {
-                    await supabase
-                        .from('financeiro')
+                    await (supabase
+                        .from('financeiro') as any)
                         .update({
                             valor: valorNumerico,
                             status: financeiroStatus,
                             descricao: `Job: ${formData.titulo}`
                         })
-                        .eq('id', existingFinanceiro.id)
+                        .eq('id', (existingFinanceiro as any).id)
                 } else {
-                    await supabase
-                        .from('financeiro')
+                    await (supabase
+                        .from('financeiro') as any)
                         .insert(financeiroData)
                 }
             }

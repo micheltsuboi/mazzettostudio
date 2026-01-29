@@ -18,7 +18,7 @@ export default async function CategoryPage({
         .from('categorias_portfolio')
         .select('id, nome')
         .eq('slug', slug)
-        .single()
+        .single() as any
 
     if (!categoria) {
         notFound()
@@ -32,7 +32,7 @@ export default async function CategoryPage({
             imagens_portfolio (*)
         `)
         .eq('publicado', true)
-        .eq('categoria_id', categoria.id)
+        .eq('categoria_id', (categoria as any).id)
         .order('ordem', { ascending: true })
 
     return (

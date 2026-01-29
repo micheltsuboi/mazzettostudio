@@ -46,8 +46,8 @@ export default function JobsPage() {
         if (!confirm('Tem certeza que deseja excluir este job? Isso excluirá também todo o histórico de tempo.')) return
 
         try {
-            const { error } = await supabase
-                .from('jobs')
+            const { error } = await (supabase
+                .from('jobs') as any)
                 .delete()
                 .eq('id', id)
 
@@ -79,8 +79,8 @@ export default function JobsPage() {
             // Optimistic update
             setJobs(jobs.map(j => j.id === id ? { ...j, status: newStatus } : j))
 
-            const { error } = await supabase
-                .from('jobs')
+            const { error } = await (supabase
+                .from('jobs') as any)
                 .update({ status: newStatus })
                 .eq('id', id)
 
@@ -101,9 +101,9 @@ export default function JobsPage() {
             if (!user) throw new Error('Usuário não autenticado')
 
             // 1. Update Job
-            const { error: jobError } = await supabase
-                .from('jobs')
-                .update({ status_pagamento: newStatus } as any)
+            const { error: jobError } = await (supabase
+                .from('jobs') as any)
+                .update({ status_pagamento: newStatus })
                 .eq('id', id)
 
             if (jobError) throw jobError
@@ -113,18 +113,18 @@ export default function JobsPage() {
                 .from('financeiro')
                 .select('id')
                 .eq('job_id', id)
-                .single()
+                .single() as any
 
             const financeiroStatus = newStatus === 'pago' ? 'pago' : 'a_receber'
 
             if (existingFinanceiro) {
-                await supabase
-                    .from('financeiro')
+                await (supabase
+                    .from('financeiro') as any)
                     .update({ status: financeiroStatus })
                     .eq('id', existingFinanceiro.id)
             } else {
-                await supabase
-                    .from('financeiro')
+                await (supabase
+                    .from('financeiro') as any)
                     .insert({
                         job_id: id,
                         descricao: `Job: ${jobTitle}`,
