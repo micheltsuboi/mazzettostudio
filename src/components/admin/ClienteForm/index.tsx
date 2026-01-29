@@ -27,6 +27,8 @@ export default function ClienteForm({ cliente, onSuccess, onCancel }: ClienteFor
         endereco: cliente?.endereco || '',
         cidade: cliente?.cidade || '',
         estado: cliente?.estado || '',
+        email: cliente?.email || '',
+        telefone: cliente?.telefone || '',
     })
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -170,6 +172,28 @@ export default function ClienteForm({ cliente, onSuccess, onCancel }: ClienteFor
                                 onChange={e => setFormData({ ...formData, estado: e.target.value.toUpperCase() })}
                                 className="w-full px-4 py-3 bg-surface-highlight border border-white/10 rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue/50 transition-all placeholder:text-foreground-muted/50"
                                 placeholder="EX"
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-foreground-muted uppercase tracking-wider">Email</label>
+                            <input
+                                type="email"
+                                value={formData.email}
+                                onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                className="w-full px-4 py-3 bg-surface-highlight border border-white/10 rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue/50 transition-all placeholder:text-foreground-muted/50"
+                                placeholder="cliente@email.com"
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-foreground-muted uppercase tracking-wider">Telefone</label>
+                            <input
+                                type="tel"
+                                value={formData.telefone}
+                                onChange={e => setFormData({ ...formData, telefone: e.target.value })}
+                                className="w-full px-4 py-3 bg-surface-highlight border border-white/10 rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue/50 transition-all placeholder:text-foreground-muted/50"
+                                placeholder="(00) 00000-0000"
                             />
                         </div>
                     </div>

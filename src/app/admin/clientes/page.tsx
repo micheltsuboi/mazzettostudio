@@ -148,6 +148,24 @@ export default function ClientesPage() {
                                     </div>
                                 )}
 
+                                {/* Contato */}
+                                {(cliente.email || cliente.telefone) && (
+                                    <div className="flex flex-col md:flex-row md:items-center col-span-2 md:col-span-1 gap-2 md:gap-4">
+                                        {cliente.email && (
+                                            <div className="flex items-center gap-2 text-xs text-foreground-muted font-medium">
+                                                <span className="text-accent-blue truncate max-w-[150px]" title={cliente.email}>
+                                                    {cliente.email}
+                                                </span>
+                                            </div>
+                                        )}
+                                        {cliente.telefone && (
+                                            <div className="flex items-center gap-2 text-xs text-foreground-muted font-medium">
+                                                <span className="text-foreground-muted/70">{cliente.telefone}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
                                 {/* Localização */}
                                 {cliente.cidade && (
                                     <div className="flex flex-col md:flex-row md:items-center col-span-2 md:col-span-1">

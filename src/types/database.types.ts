@@ -23,6 +23,8 @@ export interface Database {
                     endereco: string | null
                     cidade: string | null
                     estado: string | null
+                    email: string | null
+                    telefone: string | null
                     created_at: string
                     updated_at: string
                     user_id: string
@@ -37,6 +39,8 @@ export interface Database {
                     endereco?: string | null
                     cidade?: string | null
                     estado?: string | null
+                    email?: string | null
+                    telefone?: string | null
                     created_at?: string
                     updated_at?: string
                     user_id: string
@@ -51,6 +55,8 @@ export interface Database {
                     endereco?: string | null
                     cidade?: string | null
                     estado?: string | null
+                    email?: string | null
+                    telefone?: string | null
                     created_at?: string
                     updated_at?: string
                     user_id?: string
