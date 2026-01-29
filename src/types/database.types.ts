@@ -86,7 +86,6 @@ export interface Database {
                     quantidade?: number
                     status?: string
                     created_at?: string
-                    created_at?: string
                     updated_at?: string
                     user_id: string
                 }
@@ -99,7 +98,6 @@ export interface Database {
                     tempo_total?: number
                     quantidade?: number
                     status?: string
-                    created_at?: string
                     created_at?: string
                     updated_at?: string
                     user_id?: string
