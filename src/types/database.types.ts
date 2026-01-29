@@ -70,6 +70,7 @@ export interface Database {
                     observacoes: string | null
                     valor: number | null
                     tempo_total: number
+                    quantidade: number
                     status: string
                     created_at: string
                     updated_at: string
@@ -82,7 +83,9 @@ export interface Database {
                     observacoes?: string | null
                     valor?: number | null
                     tempo_total?: number
+                    quantidade?: number
                     status?: string
+                    created_at?: string
                     created_at?: string
                     updated_at?: string
                     user_id: string
@@ -94,7 +97,9 @@ export interface Database {
                     observacoes?: string | null
                     valor?: number | null
                     tempo_total?: number
+                    quantidade?: number
                     status?: string
+                    created_at?: string
                     created_at?: string
                     updated_at?: string
                     user_id?: string

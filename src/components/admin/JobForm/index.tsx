@@ -24,6 +24,7 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
         titulo: job?.titulo || '',
         cliente_id: job?.cliente_id || '',
         valor: job?.valor || '',
+        quantidade: job?.quantidade || 1,
         observacoes: job?.observacoes || '',
         status: job?.status || 'em_andamento',
         status_pagamento: (job as any)?.status_pagamento || 'pendente',
@@ -51,10 +52,12 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
             if (!user) throw new Error('Usuário não autenticado')
 
             const valorNumerico = formData.valor ? Number(formData.valor) : 0
+            const quantidadeNumerica = formData.quantidade ? Number(formData.quantidade) : 1
 
             const dataToSave: any = {
                 ...formData,
                 valor: valorNumerico,
+                quantidade: quantidadeNumerica,
                 user_id: user.id
             }
 
@@ -184,6 +187,18 @@ export default function JobForm({ job, onSuccess, onCancel }: JobFormProps) {
                                     onChange={e => setFormData({ ...formData, valor: e.target.value })}
                                     className="w-full px-3 py-2 bg-surface-highlight border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 text-foreground placeholder:text-foreground-muted/50"
                                     placeholder="0,00"
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-foreground-muted">Quantidade (Vol.)</label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    value={formData.quantidade}
+                                    onChange={e => setFormData({ ...formData, quantidade: Number(e.target.value) })}
+                                    className="w-full px-3 py-2 bg-surface-highlight border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 text-foreground placeholder:text-foreground-muted/50"
+                                    placeholder="1"
                                 />
                             </div>
                         </div>

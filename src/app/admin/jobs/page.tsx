@@ -190,6 +190,7 @@ export default function JobsPage() {
                     <div className="flex-1 pl-1">Job / Cliente</div>
                     <div className="flex items-center gap-5 w-auto">
                         <div className="w-[100px] text-center">Tempo</div>
+                        <div className="w-[70px] text-center">Qtd.</div>
                         <div className="min-w-[80px] text-right">Valor</div>
                         <div className="w-[110px] pl-1">Pagamento</div>
                         <div className="w-[120px] pl-1">Progresso</div>
@@ -234,6 +235,14 @@ export default function JobsPage() {
                                             jobId={job.id}
                                             initialTempoTotal={job.tempo_total || 0}
                                         />
+                                    </div>
+                                </div>
+
+                                {/* Quantidade */}
+                                <div className="flex flex-col md:flex-row md:items-center justify-center">
+                                    <span className="md:hidden text-[10px] text-foreground-muted uppercase font-bold mb-1">Qtd.</span>
+                                    <div className="text-sm text-white font-medium bg-white/5 py-1 px-3 rounded-lg border border-white/5">
+                                        {job.quantidade || 1}
                                     </div>
                                 </div>
 
