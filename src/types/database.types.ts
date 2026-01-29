@@ -292,6 +292,32 @@ export interface Database {
                     ip?: string | null
                 }
             }
+            contacts: {
+                Row: {
+                    id: string
+                    created_at: string
+                    name: string
+                    email: string
+                    message: string
+                    read: boolean
+                }
+                Insert: {
+                    id?: string
+                    created_at?: string
+                    name: string
+                    email: string
+                    message: string
+                    read?: boolean
+                }
+                Update: {
+                    id?: string
+                    created_at?: string
+                    name?: string
+                    email?: string
+                    message?: string
+                    read?: boolean
+                }
+            }
         }
         Views: {
             [_ in never]: never

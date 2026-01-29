@@ -12,7 +12,8 @@ import {
     LogOut,
     Menu,
     X,
-    BarChart
+    BarChart,
+    Mail
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
@@ -27,6 +28,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/admin/messages', label: 'Mensagens', icon: Mail }, // Added Messages item
     { href: '/admin/clientes', label: 'Clientes', icon: Users },
     { href: '/admin/jobs', label: 'Jobs', icon: Briefcase },
     { href: '/admin/analytics', label: 'Analytics', icon: BarChart }, // Added Analytics item
