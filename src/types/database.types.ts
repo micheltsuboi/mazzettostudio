@@ -269,6 +269,29 @@ export interface Database {
                     user_id?: string
                 }
             }
+            page_views: {
+                Row: {
+                    id: string
+                    created_at: string
+                    path: string
+                    user_agent: string | null
+                    ip: string | null
+                }
+                Insert: {
+                    id?: string
+                    created_at?: string
+                    path: string
+                    user_agent?: string | null
+                    ip?: string | null
+                }
+                Update: {
+                    id?: string
+                    created_at?: string
+                    path?: string
+                    user_agent?: string | null
+                    ip?: string | null
+                }
+            }
         }
         Views: {
             [_ in never]: never

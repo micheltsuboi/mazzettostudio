@@ -11,7 +11,8 @@ import {
     Image as ImageIcon,
     LogOut,
     Menu,
-    X
+    X,
+    BarChart
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
@@ -28,6 +29,7 @@ const navLinks: NavLink[] = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
     { href: '/admin/clientes', label: 'Clientes', icon: Users },
     { href: '/admin/jobs', label: 'Jobs', icon: Briefcase },
+    { href: '/admin/analytics', label: 'Analytics', icon: BarChart }, // Added Analytics item
     { href: '/admin/financeiro', label: 'Financeiro', icon: DollarSign },
     { href: '/admin/portfolio', label: 'Portfólio', icon: ImageIcon },
 ]

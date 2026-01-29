@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import PageViewTracker from "@/components/analytics/PageViewTracker";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -23,6 +25,9 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased font-sans`}
       >
         {children}
+        <Suspense fallback={null}>
+          <PageViewTracker />
+        </Suspense>
       </body>
     </html>
   );
