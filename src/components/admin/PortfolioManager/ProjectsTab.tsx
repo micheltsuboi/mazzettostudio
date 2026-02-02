@@ -167,10 +167,11 @@ function ProjectForm({ projeto, categorias, onSuccess, onCancel }: {
             const files = Array.from(e.target.files)
 
             for (const file of files) {
-                // 1. Compress
-                console.log('Compressing:', file.name)
-                const compressedFile = await compressImage(file)
-                console.log('Compressed size:', compressedFile.size, 'type:', compressedFile.type)
+                // 1. No Compression (Original Quality)
+                console.log('Uploading original:', file.name)
+                // const compressedFile = await compressImage(file) // Removed per user request
+                const compressedFile = file // Using original file
+                console.log('Original size:', compressedFile.size, 'type:', compressedFile.type)
 
                 // Check auth
                 const { data: { user } } = await supabase.auth.getUser()

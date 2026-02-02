@@ -33,11 +33,12 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
                         <Image
                             src={img.url}
                             alt={img.titulo || projectTitle}
-                            width={1920}
-                            height={1080}
+                            width={2000} // Increased base width
+                            height={1200}
                             className="w-full h-auto object-contain max-h-[90vh] mx-auto bg-surface-highlight/10 transition-transform duration-700 ease-out group-hover:scale-[1.01]"
                             priority={index === 0}
-                            quality={90}
+                            unoptimized={true} // Disable Next.js resize/compression
+                            quality={100}
                             sizes="100vw"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none" />
