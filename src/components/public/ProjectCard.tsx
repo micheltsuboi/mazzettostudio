@@ -13,7 +13,7 @@ interface ProjectCardProps {
     className?: string
 }
 
-export default function ProjectCard({ project, className }: ProjectCardProps) {
+export default function ProjectCard({ project, className, priority = false }: ProjectCardProps & { priority?: boolean }) {
     // Pegar a imagem principal (ordem 0) ou a primeira disponível
     const mainImage = project.imagens_portfolio?.sort((a, b) => a.ordem - b.ordem)[0]
 
@@ -33,6 +33,8 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={100}
+                    priority={priority}
+                    unoptimized={true}
                 />
             </div>
 

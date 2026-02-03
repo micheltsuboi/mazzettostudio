@@ -62,6 +62,7 @@ export default function MosaicGrid({ projects }: MosaicGridProps) {
                             key={project.id}
                             project={project}
                             className={`${patternClass} w-full h-full`}
+                            priority={index < 4}
                         />
                     )
                 })}
